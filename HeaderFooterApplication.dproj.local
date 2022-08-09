@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2022/08/09 10:12:24.222,=D:\E-COMMERCE\Unit1.pas</Transaction>
+    <Transaction>2022/08/09 10:15:04.612,D:\E-COMMERCE\frames\frame.produto.fmx=D:\E-COMMERCE\Unit1.fmx</Transaction>
+    <Transaction>2022/08/09 10:15:04.612,D:\E-COMMERCE\frames\frame.produto.pas=D:\E-COMMERCE\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
