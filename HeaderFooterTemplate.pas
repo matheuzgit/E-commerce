@@ -18,11 +18,16 @@ type
     procedure FormShow(Sender: TObject);
   private
     procedure listarprodutos(pagina: integer; clear_pg: boolean);
+    procedure threadprodutosterminate(Sender: TObject);
+    procedure requestprodutos(pagina: integer);
+
 
     { Private declarations }
   public
     { Public declarations }
   end;
+
+
 
 var
   HeaderFooterForm: THeaderFooterForm;
@@ -32,6 +37,16 @@ implementation
 {$R *.fmx}
 
 uses frame.produto;
+
+procedure  THeaderFooterForm.requestprodutos(pagina: integer);
+begin
+  sleep(2000);
+end;
+
+procedure THeaderFooterForm.threadprodutosterminate(Sender: TObject);
+begin
+
+end;
 
 procedure THeaderFooterForm.listarprodutos(pagina: integer; clear_pg: boolean);
 var
@@ -57,15 +72,20 @@ begin
 
    lbprodutos.Tag := pagina;
 
+   t := TThread.CreateAnonymousThread(procedure
+   begin
+     requestprodutos(pagina);
+   end);
 
-
+   t.OnTerminate := threadprodutosterminate;
+   t.Start;
 
 end;
 
 
 procedure THeaderFooterForm.FormShow(Sender: TObject);
 begin
-    listarprodutos(1, true);
+  listarprodutos(1, true);
 end;
 
 end.
